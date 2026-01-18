@@ -83,33 +83,6 @@ All of our open-source and client-facing projects are available here:
 ---
 
 ## ⚡ Fun Fact
-
-> We turn **complex business problems** into **simple, scalable software solutions**.
-
----
-
-## 🛠️ Languages & Tools
-
-### 💻 Programming Languages
-`JavaScript` `TypeScript` `Python` `Java` `C#` `Go` `PHP`
-
-### 🌐 Frontend
-`React` `Vue` `Next.js` `Nuxt.js` `HTML5` `CSS3` `Tailwind`
-
-### ⚙️ Backend
-`Node.js` `Express` `NestJS` `Spring` `GraphQL`
-
-### 🧠 AI / Data
-`TensorFlow` `PyTorch` `Pandas` `Scikit-learn` `OpenCV`
-
-### 🗄️ Databases
-`MongoDB` `PostgreSQL` `MySQL` `Redis`
-
-### ☁️ DevOps & Cloud
-`AWS` `Docker` `Kubernetes` `GitHub Actions` `Nginx`
-
----
-
 ⭐ _Let’s build the future with intelligent, scalable technology._
 <img align="right" height="150" src="https://i.imgflip.com/65efzo.gif"  />
 
@@ -143,43 +116,3 @@ All of our open-source and client-facing projects are available here:
 </div>
 
 ###
-
-<br clear="both">
-
-<img src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/output/snake.svg" alt="Snake animation" />
-
-###
-name: Generate snake animation
-
-on:
-  schedule: # execute every 12 hours
-    - cron: "* */12 * * *"
-
-  workflow_dispatch:
-
-  push:
-    branches:
-    - main
-
-jobs:
-  generate:
-    permissions:
-      contents: write
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-
-    steps:
-      - name: generate snake.svg
-        uses: Platane/snk/svg-only@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: dist/snake.svg?palette=github-dark
-
-
-      - name: push snake.svg to the output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
-        with:
-          target_branch: output
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
